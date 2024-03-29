@@ -1,0 +1,162 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - export_raw_data_to_bigquery_stg
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_raw_data_from_gcs
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_raw_data_from_gcs
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: bigquery
+    data_provider_database: dataengproject-417719
+    data_provider_profile: default
+    data_provider_schema: life_expectancy
+    data_provider_table: life_expectancy_stg
+    dbt: {}
+    disable_query_preprocessing: false
+    export_write_policy: replace
+    limit: 1000000
+    use_raw_sql: false
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: export_raw_data_to_bigquery_stg
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_raw_data_from_gcs
+  uuid: export_raw_data_to_bigquery_stg
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: bigquery
+    data_provider_database: dataengproject-417719
+    data_provider_profile: default
+    data_provider_schema: life_expectancy
+    export_write_policy: replace
+  downstream_blocks:
+  - export_dim_country_to_bigquery_stg
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_dim_country_from_gcs
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_dim_country_from_gcs
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: bigquery
+    data_provider_database: dataengproject-417719
+    data_provider_profile: default
+    data_provider_schema: life_expectancy
+    data_provider_table: dim_country_stg
+    dbt: {}
+    disable_query_preprocessing: false
+    export_write_policy: replace
+    limit: 1000
+    use_raw_sql: false
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: export_dim_country_to_bigquery_stg
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_dim_country_from_gcs
+  uuid: export_dim_country_to_bigquery_stg
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: bigquery
+    data_provider_database: dataengproject-417719
+    data_provider_profile: default
+    data_provider_schema: life_expectancy
+    export_write_policy: replace
+  downstream_blocks:
+  - export_dim_indicator_to_bigquery_stg
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_dim_indicator_from_gcs
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_dim_indicator_from_gcs
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    data_provider: bigquery
+    data_provider_database: dataengproject-417719
+    data_provider_profile: default
+    data_provider_schema: life_expectancy
+    data_provider_table: dim_indicator_stg
+    dbt: {}
+    disable_query_preprocessing: false
+    export_write_policy: replace
+    limit: 1000
+    use_raw_sql: false
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: sql
+  name: export_dim_indicator_to_bigquery_stg
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - load_dim_indicator_from_gcs
+  uuid: export_dim_indicator_to_bigquery_stg
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-03-27 15:17:26.046767+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: life_expectancy_to_bigquery_load
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+updated_at: '2024-03-27 18:27:49'
+uuid: life_expectancy_to_bigquery_load
+variables_dir: /home/src/mage_data/life_expectancy_project
+widgets: []
