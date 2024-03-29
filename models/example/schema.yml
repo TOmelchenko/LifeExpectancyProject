@@ -1,0 +1,76 @@
+
+version: 2
+
+sources:
+  - name: staging
+    database: dataengproject-417719
+    schema: life_expectancy
+
+    tables:
+      - name: life_expectancy_stg
+      - name: dim_country_stg
+      - name: dim_indicator_stg
+
+models:
+  - name: fact_life_expectancy
+    description: ""
+    columns:
+      - name: countrycode
+        data_type: string
+        description: ""
+        tests:
+            - not_null:
+                severity: warn
+            - relationships:
+                to: ref('dim_country')
+                field: countrycode
+                severity: warn
+
+      - name: indicatorcode
+        data_type: string
+        description: ""
+        tests:
+            - not_null:
+                severity: warn
+            - relationships:
+                to: ref('dim_indicator')
+                field: indicatorcode
+                severity: warn                
+  
+  - name: dim_indicator
+    description: ""
+    columns:
+      - name: indicatorcode
+        data_type: string
+        description: ""
+        tests:
+            - unique:
+                severity: warn
+            - not_null:
+                severity: warn            
+
+      - name: indicatorname
+        data_type: string
+        description: ""
+        tests:
+          - not_null:
+              severity: warn  
+
+  - name: dim_country
+    description: ""
+    columns:
+      - name: countrycode
+        data_type: string
+        description: ""
+        tests:
+            - unique:
+                severity: warn
+            - not_null:
+                severity: warn            
+
+      - name: countryname
+        data_type: string
+        description: ""
+        tests:
+          - not_null:
+              severity: warn               
