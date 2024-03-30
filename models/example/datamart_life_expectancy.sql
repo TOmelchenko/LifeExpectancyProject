@@ -16,11 +16,11 @@ with year_data_10 as (
         fact._2022 as _2022
     from `dataengproject-417719`.`life_expectancy`.`fact_life_expectancy` as fact
     join `dataengproject-417719`.`life_expectancy`.`dim_country` as country
-    on fact.countrycode = country.countrycode
+    on fact.countrycode = country.countrycode  and country.region is not null
     join `dataengproject-417719`.`life_expectancy`.`dim_indicator` as ind
     on fact.indicatorcode = ind.indicatorcode
     where ind.indicatorcode in ('SP.POP.TOTL.MA.IN', 'SP.POP.TOTL.FE.IN', 'SP.POP.TOTL' , 'SP.DYN.LE00.MA.IN', 'SP.DYN.LE00.IN', 'SP.DYN.LE00.FE.IN')
-    and country.region is not null
+   
 ),
 
 population_men as (
