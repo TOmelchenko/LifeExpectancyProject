@@ -3,7 +3,7 @@ version: 2
 
 sources:
   - name: staging
-    database: dataengproject-417719
+    database: dataengproject-417719 ##please put here the db name from your BigQuery project
     schema: life_expectancy
 
     tables:
