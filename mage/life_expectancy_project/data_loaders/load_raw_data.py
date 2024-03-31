@@ -81,8 +81,7 @@ def load_data(*args, **kwargs):
                     '2021': float,
                     '2022': float           
                 }       
-    #parse_dates = ['tpep_pickup_datetime', 'tpep_dropoff_datetime']
-    #df = pd.read_csv(url, sep=",", dtype=life_exp_dtype, skiprows=3)
+
     data = pd.read_csv(url, sep=",", dtype=life_exp_dtype, skiprows=4)
     return data
 

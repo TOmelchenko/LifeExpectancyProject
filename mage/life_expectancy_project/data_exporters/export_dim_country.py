@@ -7,7 +7,7 @@ import os
 if 'data_exporter' not in globals():
     from mage_ai.data_preparation.decorators import data_exporter
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/home/src/dataengproject-417719-a6a2d06410da.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/home/src/dataengproject.json"
 
 
 @data_exporter
