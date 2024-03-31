@@ -156,7 +156,9 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-03-27 18:27:49'
+updated_at: '2024-03-31 13:54:52'
 uuid: life_expectancy_to_bigquery_load
+variables:
+  BUCKET_NAME: life_expectancy_dataengproject-417719
 variables_dir: /home/src/mage_data/life_expectancy_project
 widgets: []

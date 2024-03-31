@@ -44,7 +44,7 @@ blocks:
   language: python
   name: export_raw_data_gcp
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
@@ -77,13 +77,13 @@ blocks:
   language: python
   name: transform_dim_country
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks:
   - load_dim_country
   uuid: transform_dim_country
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
@@ -93,7 +93,7 @@ blocks:
   language: python
   name: export_dim_country
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
@@ -126,13 +126,13 @@ blocks:
   language: python
   name: transform_dim_indicator
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: transformer
   upstream_blocks:
   - load_dim_indicator
   uuid: transform_dim_indicator
-- all_upstream_blocks_executed: false
+- all_upstream_blocks_executed: true
   color: null
   configuration: {}
   downstream_blocks: []
@@ -142,7 +142,7 @@ blocks:
   language: python
   name: export_dim_indicator
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: data_exporter
   upstream_blocks:
@@ -169,7 +169,11 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-03-27 16:24:45'
+updated_at: '2024-03-31 13:40:17'
 uuid: life_expectancy_to_gcs_load
+variables:
+  BUCKET_NAME: life_expectancy_dataengproject-417719
+  PROJECT_ID: dataengproject-417719
+  TABLE_NAME: life_expectancy_data
 variables_dir: /home/src/mage_data/life_expectancy_project
 widgets: []
