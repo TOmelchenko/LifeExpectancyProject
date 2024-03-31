@@ -27,7 +27,10 @@ blocks:
     disable_query_preprocessing: false
     export_write_policy: replace
     limit: 1000000
-    use_raw_sql: false
+    upstream_block_configuration:
+      load_raw_data_from_gcs:
+        table_name: '{{ DB_NAME }}.life_expectancy.life_expectancy_stg'
+    use_raw_sql: true
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
@@ -74,7 +77,10 @@ blocks:
     disable_query_preprocessing: false
     export_write_policy: replace
     limit: 1000
-    use_raw_sql: false
+    upstream_block_configuration:
+      load_dim_country_from_gcs:
+        table_name: '{{ DB_NAME }}.life_expectancy.dim_country_stg'
+    use_raw_sql: true
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
@@ -121,7 +127,10 @@ blocks:
     disable_query_preprocessing: false
     export_write_policy: replace
     limit: 1000
-    use_raw_sql: false
+    upstream_block_configuration:
+      load_dim_indicator_from_gcs:
+        table_name: '{{ DB_NAME }}.life_expectancy.dim_indicator_stg'
+    use_raw_sql: true
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
@@ -156,7 +165,9 @@ settings:
 spark_config: {}
 tags: []
 type: python
-updated_at: '2024-03-27 18:27:49'
 uuid: life_expectancy_to_bigquery_load
+variables:
+  BUCKET_NAME: life_expectancy_dataengproject-417719
+  DB_NAME: dataengproject-417719
 variables_dir: /home/src/mage_data/life_expectancy_project
 widgets: []

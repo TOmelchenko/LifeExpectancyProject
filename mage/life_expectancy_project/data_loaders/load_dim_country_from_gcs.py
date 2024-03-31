@@ -14,7 +14,7 @@ def load_from_google_cloud_storage(*args, **kwargs):
     config_path = path.join(get_repo_path(), 'io_config.yaml')
     config_profile = 'default'
 
-    bucket_name = 'life_expectancy_dataengproject-417719'
+    bucket_name = kwargs['BUCKET_NAME']
     object_key = 'life_expectancy_data/dim_country-0.parquet'
 
     return GoogleCloudStorage.with_config(ConfigFileLoader(config_path, config_profile)).load(

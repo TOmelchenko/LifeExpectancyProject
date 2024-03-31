@@ -1,5 +1,6 @@
 triggers:
 - envs: []
+  last_enabled_at: 2024-03-31 17:02:50.369301+00:00
   name: life_expectancy_to_gcp_load
   pipeline_uuid: life_expectancy_to_gcs_load
   schedule_interval: 5 12 * 4 *
