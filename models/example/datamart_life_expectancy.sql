@@ -1,4 +1,21 @@
-with year_data_10 as (
+{{ config(materialized="table") }}
+
+with fact as (
+    select *  from {{ ref("fact_life_expectancy") }}
+    where indicatorcode in ('SP.POP.TOTL.MA.IN', 'SP.POP.TOTL.FE.IN', 'SP.POP.TOTL' , 'SP.DYN.LE00.MA.IN', 'SP.DYN.LE00.IN', 'SP.DYN.LE00.FE.IN')
+   
+),
+
+country as (
+    select *  from {{ ref("dim_country") }}
+    where region is not null
+),
+
+ind as (
+    select *  from {{ ref("dim_indicator") }}
+),
+
+year_data_10 as (
     select
         country.countryname as country,
         country.region as region,
@@ -14,13 +31,9 @@ with year_data_10 as (
         fact._2020 as _2020,
         fact._2021 as _2021,
         fact._2022 as _2022
-    from `dataengproject-417719`.`life_expectancy`.`fact_life_expectancy` as fact
-    join `dataengproject-417719`.`life_expectancy`.`dim_country` as country
-    on fact.countrycode = country.countrycode  and country.region is not null
-    join `dataengproject-417719`.`life_expectancy`.`dim_indicator` as ind
-    on fact.indicatorcode = ind.indicatorcode
-    where ind.indicatorcode in ('SP.POP.TOTL.MA.IN', 'SP.POP.TOTL.FE.IN', 'SP.POP.TOTL' , 'SP.DYN.LE00.MA.IN', 'SP.DYN.LE00.IN', 'SP.DYN.LE00.FE.IN')
-   
+    from fact
+    join country on fact.countrycode = country.countrycode 
+    join ind on fact.indicatorcode = ind.indicatorcode
 ),
 
 population_men as (
