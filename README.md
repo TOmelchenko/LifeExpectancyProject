@@ -134,9 +134,11 @@ life_expectancy_stg
 - Update in the file ```schema.yaml``` the old database name to the name you have in BigQuery
 ![](https://github.com/TOmelchenko/LifeExpectancyProject/blob/main/img/dbt_database_name.png)
 - Run the model manually by ```dbt run``` command.
-- After dbt run is completed the ```datamart_life_expectancy``` view should be created in BigQuery:![](https://github.com/TOmelchenko/LifeExpectancyProject/blob/main/img/data_mart_view.png)
+- After dbt run is completed the ```datamart_life_expectancy``` table should be created in BigQuery:
+  
+  ![](https://github.com/TOmelchenko/LifeExpectancyProject/blob/main/img/data_mart_view.png)
 
-11.  The final dashboard can be accessible by the [link](https://lookerstudio.google.com/reporting/a992f160-b0a9-4422-8874-28eb883f14f8/page/lTmuD?access=viewer&requester=igomelch@gmail.com)
+1.   The final dashboard can be accessible by the [link](https://lookerstudio.google.com/reporting/a992f160-b0a9-4422-8874-28eb883f14f8/page/lTmuD?access=viewer&requester=igomelch@gmail.com)
 
 TODO
 1. Tests
