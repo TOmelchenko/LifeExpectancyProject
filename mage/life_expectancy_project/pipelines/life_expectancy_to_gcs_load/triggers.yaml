@@ -1,12 +1,15 @@
 triggers:
 - envs: []
-  last_enabled_at: 2024-03-31 17:02:50.369301+00:00
+  last_enabled_at: 2024-03-31 17:02:50.369301
   name: life_expectancy_to_gcp_load
   pipeline_uuid: life_expectancy_to_gcs_load
-  schedule_interval: 5 12 * 4 *
+  schedule_interval: '@once'
   schedule_type: time
   settings: {}
   sla: null
   start_time: 2024-03-30 13:00:00
   status: active
-  variables: {}
+  variables:
+    BUCKET_NAME: life_expectancy_dataengproject-418917
+    PROJECT_ID: dataengproject-418917
+    TABLE_NAME: life_expectancy_data

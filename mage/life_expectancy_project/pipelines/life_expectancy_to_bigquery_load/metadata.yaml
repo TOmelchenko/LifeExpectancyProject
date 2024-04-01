@@ -167,7 +167,7 @@ tags: []
 type: python
 uuid: life_expectancy_to_bigquery_load
 variables:
-  BUCKET_NAME: life_expectancy_dataengproject-417719
-  DB_NAME: dataengproject-417719
+  BUCKET_NAME: life_expectancy_dataengproject-417719 ## put your bucket name here
+  DB_NAME: dataengproject-417719 ## put your BQ database name here
 variables_dir: /home/src/mage_data/life_expectancy_project
 widgets: []

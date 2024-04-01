@@ -172,8 +172,8 @@ type: python
 updated_at: '2024-03-31 15:45:01'
 uuid: life_expectancy_to_gcs_load
 variables:
-  BUCKET_NAME: life_expectancy_dataengproject-417719
-  PROJECT_ID: dataengproject-417719
+  BUCKET_NAME: life_expectancy_dataengproject-417719 ## put your bucket name here
+  PROJECT_ID: dataengproject-417719 ## put your project id here
   TABLE_NAME: life_expectancy_data
 variables_dir: /home/src/mage_data/life_expectancy_project
 widgets: []

@@ -1,12 +1,14 @@
 triggers:
 - envs: []
-  last_enabled_at: 2024-03-31 17:02:50.376665+00:00
+  last_enabled_at: 2024-03-31 17:02:50.376665
   name: life_expectancy_to_bigquery_load
   pipeline_uuid: life_expectancy_to_bigquery_load
-  schedule_interval: 15 12 * 4 *
+  schedule_interval: '@once'
   schedule_type: time
   settings: {}
   sla: null
   start_time: 2024-03-30 12:00:00
   status: active
-  variables: {}
+  variables:
+    BUCKET_NAME: life_expectancy_dataengproject-418917
+    DB_NAME: dataengproject-418917
